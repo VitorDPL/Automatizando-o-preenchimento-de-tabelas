@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Dados</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #F0F4F8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+            overflow-y: auto;
+            max-height: 90vh;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2C3E50;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+
+        label {
+            font-size: 14px;
+            color: #34495E;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #BDC3C7;
+            border-radius: 6px;
+            font-size: 16px;
+            color: #34495E;
+            background-color: #F7F9FC;
+            transition: all 0.3s ease;
+        }
+
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus {
+            border-color: #3498DB;
+            outline: none;
+            background-color: #EAF1FB;
+        }
+
+        button {
+            background-color: #3498DB;
+            color: #fff;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980B9;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-row input {
+            margin-bottom: 0;
+        }
+
+        .form-row input:focus {
+            background-color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .form-footer a {
+            color: #3498DB;
+            text-decoration: none;
+        }
+
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Formulário de Dados</h1>
+        <form action="/envia_dados" method="post">
+            <div class="form-row">
+                <div>
+                    <label for="data_venda">Data da Venda:</label>
+                    <input type="text" id="data_venda" name="data_venda" placeholder="Digite a data da venda" required>
+                </div>
+                <div>
+                    <label for="horario_venda">Horário da Venda:</label>
+                    <input type="text" id="horario_venda" name="horario_venda" placeholder="Digite o horário da venda" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div>
+                    <label for="produto">Produto:</label>
+                    <input type="text" id="produto" name="produto" placeholder="Digite o nome do produto" required>
+                </div>
+                <div>
+                    <label for="sku">SKU:</label>
+                    <input type="text" id="sku" name="sku" placeholder="Digite o SKU do produto" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div>
+                    <label for="categoria">Categoria:</label>
+                    <input type="text" id="categoria" name="categoria" placeholder="Digite a categoria do produto" required>
+                </div>
+                <div>
+                    <label for="metodo_pagamento">Método de Pagamento:</label>
+                    <input type="text" id="metodo_pagamento" name="metodo_pagamento" placeholder="Digite o método de pagamento" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div>
+                    <label for="regiao">Região:</label>
+                    <input type="text" id="regiao" name="regiao" placeholder="Digite a região de entrega" required>
+                </div>
+                <div>
+                    <label for="cliente">Cliente:</label>
+                    <input type="text" id="cliente" name="cliente" placeholder="Digite o nome do cliente" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div>
+                    <label for="origem_cliente">Origem do Cliente:</label>
+                    <input type="text" id="origem_cliente" name="origem_cliente" placeholder="Informe a origem do cliente" required>
+                </div>
+                <div>
+                    <label for="status_pedido">Status do Pedido:</label>
+                    <input type="text" id="status_pedido" name="status_pedido" placeholder="Informe o status do pedido" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div>
+                    <label for="canal_venda">Canal de Venda:</label>
+                    <input type="text" id="canal_venda" name="canal_venda" placeholder="Informe o canal de venda" required>
+                </div>
+                <div>
+                    <label for="quantidade">Quantidade:</label>
+                    <input type="number" id="quantidade" name="quantidade" placeholder="Digite a quantidade" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div>
+                    <label for="preco_unitario">Preço Unitário:</label>
+                    <input type="number" step="0.01" id="preco_unitario" name="preco_unitario" placeholder="Informe o preço unitário" required>
+                </div>
+                <div>
+                    <label for="desconto_aplicado">Desconto Aplicado:</label>
+                    <input type="number" step="0.01" id="desconto_aplicado" name="desconto_aplicado" placeholder="Informe o desconto aplicado" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div>
+                    <label for="custo_unitario">Custo Unitário:</label>
+                    <input type="number" step="0.01" id="custo_unitario" name="custo_unitario" placeholder="Informe o custo unitário" required>
+                </div>
+                <div>
+                    <label for="total_venda">Total da Venda:</label>
+                    <input type="number" step="0.01" id="total_venda" name="total_venda" placeholder="Informe o total da venda" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div>
+                    <label for="lucro_bruto">Lucro Bruto:</label>
+                    <input type="number" step="0.01" id="lucro_bruto" name="lucro_bruto" placeholder="Informe o lucro bruto" required>
+                </div>
+                <div>
+                    <label for="frete">Frete:</label>
+                    <input type="number" step="0.01" id="frete" name="frete" placeholder="Informe o valor do frete" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div>
+                    <label for="prazo_entrega_estimado">Prazo de Entrega Estimado:</label>
+                    <input type="number" id="prazo_entrega_estimado" name="prazo_entrega_estimado" placeholder="Informe o prazo de entrega estimado" required>
+                </div>
+                <div>
+                    <label for="prazo_entrega_real">Prazo de Entrega Real:</label>
+                    <input type="number" id="prazo_entrega_real" name="prazo_entrega_real" placeholder="Informe o prazo de entrega real" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div>
+                    <label for="feedback">Feedback:</label>
+                    <input type="text" id="feedback" name="feedback" placeholder="Digite o feedback do cliente" required>
+                </div>
+            </div>
+
+            <button type="submit">Enviar Dados</button>
+        </form>
+        <div class="form-footer">
+            <p>Já tem uma conta? <a href="/login">Faça login aqui</a></p>
+        </div>
+    </div>
+</body>
+</html>
